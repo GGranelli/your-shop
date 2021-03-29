@@ -30,10 +30,6 @@ class Base extends Component {
     this.setState({ provinces, nations, images });
   }
 
-  // async componentDidMount() {
-
-  // }
-
   //=====FORM=====//
 
   changeShowHome = () => {
@@ -56,19 +52,6 @@ class Base extends Component {
   };
 
   //=====MODAL SLIDE====//
-  handlePrev = (index) => {
-    index--;
-    this.setState({
-      currentSlide: index,
-    });
-  };
-
-  handleNext = (index) => {
-    index++;
-    this.setState({
-      currentSlide: index,
-    });
-  };
 
   openModalSlide = (data) => {
     this.setState({ currentSlide: data, showModalSlide: true });
@@ -102,8 +85,6 @@ class Base extends Component {
           close={this.handleCloseModalSlide}
           slides={images}
           currentSlide={currentSlide}
-          next={this.handleNext}
-          prev={this.handlePrev}
         />
         <Header
           showForm={this.changeShowForm}

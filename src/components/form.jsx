@@ -62,40 +62,51 @@ class Form extends Component {
 
   renderInput = (name, label) => {
     return (
-      <div className="label-input">
-        <label className="label-form" id={name}>
-          {label}
-        </label>
-        <input
-          onChange={this.handleChange}
-          name={name}
-          id={name}
-          className={"input-form"}
-        />
-      </div>
+      <React.Fragment>
+        <div className="label-input">
+          <label className="label-form" id={name}>
+            {label}
+          </label>
+          <input
+            onChange={this.handleChange}
+            name={name}
+            id={name}
+            className={"input-form"}
+          />
+        </div>
+        {this.state.errors[name] && (
+          <div className="alert alert-danger">{this.state.errors[name]}</div>
+        )}
+      </React.Fragment>
     );
   };
 
   renderSelect = (name, label, options) => {
     return (
-      <div className="label-input">
-        <label className="label-form" id={name}>
-          {label}
-        </label>
-        <select
-          onChange={this.handleChange}
-          name={name}
-          id={name}
-          className={"select-form"}
-        >
-          <option value="" />
-          {options.map((option) => (
-            <option key={option.code} value={option.code}>
-              {option.name}
-            </option>
-          ))}
-        </select>
-      </div>
+      <React.Fragment>
+        <div className="label-input">
+          <label className="label-form" id={name}>
+            {label}
+          </label>
+
+          <select
+            onChange={this.handleChange}
+            name={name}
+            id={name}
+            className={"select-form"}
+          >
+            <option value="" />
+            {options.map((option) => (
+              <option key={option.code} value={option.code}>
+                {option.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        {this.state.errors[name] && (
+          <div className="alert alert-danger">{this.state.errors[name]}</div>
+        )}
+      </React.Fragment>
     );
   };
 

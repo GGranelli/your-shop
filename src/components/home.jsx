@@ -5,7 +5,11 @@ const Home = ({ images, openModal }) => {
   return (
     <div className="home-body">
       {images.map((img) => (
-        <div className="img-container" onClick={() => openModal(img.key)}>
+        <div
+          key={img.key}
+          className="img-container"
+          onClick={() => openModal(img.key)}
+        >
           {renderImgStandard(img.img, img.title, openModal)}
         </div>
       ))}

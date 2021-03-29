@@ -25,7 +25,7 @@ const ModalSlide = ({ show, close, slides, currentSlide }) => {
       >
         <Slider>
           {slides.map((slide) => (
-            <Slide index={slide.key}>
+            <Slide key={slide.key} index={slide.key}>
               <div className="slide-container">
                 <div className={!isMobile ? "slide-img" : "slide-img-mobile"}>
                   <img
